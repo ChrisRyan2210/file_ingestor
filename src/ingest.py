@@ -1,7 +1,16 @@
 """
-This file is responsible for ingesting a file into the database by calling our SQL session object from our SQL connection file
+This file is responsible for ingesting a file into the database by using our engine object
 """
 
+def write_to_sql(df, table_name, engine):
 
+    try:
+        df.to_sql(
+            table_name,
+            con=engine,
+            if_exists="replace",
+            index=False
+        )
 
-def write_to_sql(file):
+    except Exception as e:
+        print(f"Failed to import file {table_name}: {e}")

@@ -6,6 +6,7 @@ This app should be run via the CLI using the python main.py "<path/to/folder>" c
 import sys
 from pathlib import Path
 from src.scanner import scan_files
+from src.sql_connector import create_engine
 
 def main():
 
@@ -19,7 +20,8 @@ def main():
         return
 
     # Orchestration
-    scan_files(input_folder)
+    engine = create_engine()
+    scan_files(input_folder, engine)
     # enforce_schema() - optional
     # import_files()
 

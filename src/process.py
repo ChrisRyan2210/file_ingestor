@@ -3,10 +3,15 @@ This file is responsible for processing the files based on their extension and c
 """
 
 from src.ingest import write_to_sql
+import pandas as pd
 
-def process_file(file):
+
+def process_file(file, engine):
     if file.suffix == ".csv":
-        with open(file, "r") as f:
-            write_to_sql(f)
+        df = pd.read_csv(file)
+        file_name = file.stem
+        write_to_sql(df, file_name, engine)
     elif file.suffix == ".xlsx":
-        print("")
+        print("Excel processing not implemented yet.")
+    else:
+        print("Unexpected file type.")
