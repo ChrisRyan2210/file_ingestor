@@ -8,7 +8,7 @@ import pandas as pd
 
 def process_file(file, engine):
     if file.suffix == ".csv":
-        df = pd.read_csv(file)
+        df = pd.read_csv(file, low_memory=False)
         file_name = file.stem
         write_to_sql(df, file_name, engine)
     elif file.suffix == ".xlsx":

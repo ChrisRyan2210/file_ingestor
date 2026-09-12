@@ -9,7 +9,8 @@ def write_to_sql(df, table_name, engine):
             table_name,
             con=engine,
             if_exists="replace",
-            index=False
+            index=False,
+            chunksize=10000
         )
 
     except Exception as e:

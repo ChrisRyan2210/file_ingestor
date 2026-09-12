@@ -6,7 +6,7 @@ This app should be run via the CLI using the python main.py "<path/to/folder>" c
 import sys
 from pathlib import Path
 from src.scanner import scan_files
-from src.sql_connector import create_engine
+from src.sql_connector import get_engine
 
 def main():
 
