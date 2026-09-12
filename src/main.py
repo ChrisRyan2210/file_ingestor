@@ -20,7 +20,7 @@ def main():
         return
 
     # Orchestration
-    engine = create_engine()
+    engine = get_engine()
     scan_files(input_folder, engine)
     # enforce_schema() - optional
     # import_files()
