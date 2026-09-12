@@ -21,9 +21,9 @@ def main():
 
     # Orchestration
     engine = get_engine()
-    scan_files(input_folder, engine)
     # enforce_schema() - optional
-    # import_files()
+    scan_files(input_folder, engine)
+    
 
 # this makes sure that we only run main() when we are in the root directory. Otherwise, we can safely import stuff from this file elsewhere without running main
 if __name__ == "__main__":
