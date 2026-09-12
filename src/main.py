@@ -5,6 +5,7 @@ This app should be run via the CLI using the python main.py "<path/to/folder>" c
 
 import sys
 from pathlib import Path
+from src.scanner import scan_files
 
 def main():
 
@@ -17,8 +18,8 @@ def main():
         print("This is not a directory, did you try to pass a file by mistake?")
         return
 
-    # Add rest of orchestration below
-    # scan_files()
+    # Orchestration
+    scan_files(input_folder)
     # enforce_schema() - optional
     # import_files()
 
